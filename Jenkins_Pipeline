@@ -1,6 +1,11 @@
 pipeline {
     
     agent any
+    
+    environment{
+        PATH = "/opt/maven/bin:$PATH"
+    }
+    
     stages {
         stage("Hello World") {
             steps{
@@ -12,6 +17,12 @@ pipeline {
             steps{
                 git 'https://github.com/patilnishant789/devops.git'
                 
+            }
+        }
+        
+        stage("Maven Build") {
+            steps{
+                sh "mvn clean package"
             }
         }
     }
