@@ -1,0 +1,18 @@
+pipeline {
+    
+    agent any
+    stages {
+        stage("Hello World") {
+            steps{
+                echo "Hello World"
+            }
+        }
+        
+        stage("Git Connectivity") {
+            steps{
+                git 'https://github.com/patilnishant789/devops.git'
+                
+            }
+        }
+    }
+}
